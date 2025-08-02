@@ -1,70 +1,51 @@
-# Getting Started with Create React App
+# Mini LinkedIn-like Community Platform
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A lightweight social feed web app built as a full-stack challenge for the CIAAN Cyber Tech internship.  
+Features user authentication, posts, likes, comments, and profile pages. Responsive UI with polished login/register forms.
 
-## Available Scripts
+## 🔗 Live Demo
 
-In the project directory, you can run:
+- **Frontend:** https://<your-frontend-domain>.vercel.app  <!-- replace with actual Vercel URL -->
+- **Backend API:** https://mini-linkedin-backend-dz5f.onrender.com
 
-### `npm start`
+## 🧰 Tech Stack
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend:** React, React Router  
+- **Backend:** Node.js, Express  
+- **Database:** MongoDB Atlas  
+- **Authentication:** JWT (JSON Web Tokens)  
+- **Styling:** Custom CSS (responsive, card-style forms)  
+- **Deployment:** Vercel (frontend), Render (backend)
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## ⭐ Features
 
-### `npm test`
+### Required
+- User registration & login (email + password) with JWT authentication  
+- User profile with name, email, bio  
+- Public feed showing text-only posts with author name (clickable to profile) and timestamp  
+- Protected routes (only authenticated users can post, like, comment, view certain pages)
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Implemented Extras
+- Create, edit, delete own posts  
+- Like / unlike posts  
+- Add and view comments on posts  
+- Responsive, polished login & register UI with client-side validation (email format, password length, non-empty posts/comments)  
+- Navigation bar with context-aware links (login/register if logged out, profile/logout when logged in)  
+- Persistent session via localStorage  
+- Profile page showing a user’s posts and allowing edits if it's your own  
+- Centralized API base URL via environment variable for deployed backend  
+- Demo user support and clear error messaging  
 
-### `npm run build`
+## 🛠 Local Development
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### Prerequisites
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- Node.js (v18+ recommended)  
+- npm  
+- MongoDB Atlas account (or local MongoDB, though env assumes Atlas)  
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Backend Setup
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```bash
+cd mini-linkedin-backend
+npm install
