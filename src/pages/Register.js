@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import "../styles.css"; // adjust path if your CSS lives elsewhere
 
 const isValidEmail = (email) =>
   /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
@@ -31,7 +32,7 @@ function Register() {
     }
 
     try {
-      await axios.post("http://localhost:5050/api/auth/register", {
+      await axios.post("/api/auth/register", {
         name: name.trim(),
         email: email.trim(),
         password,
@@ -50,49 +51,68 @@ function Register() {
   };
 
   return (
-    <div style={{ padding: "2rem" }}>
+    <div className="auth-container">
       <h2>Register</h2>
-      {error && (
-        <div style={{ color: "red", marginBottom: "0.5rem" }}>{error}</div>
-      )}
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="Name"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          required
-        />
-        <br />
-        <br />
-        <input
-          type="email"
-          placeholder="Email"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
-          required
-        />
-        <br />
-        <br />
-        <input
-          type="password"
-          placeholder="Password (min 6)"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-          required
-        />
-        <br />
-        <br />
-        <textarea
-          placeholder="Bio"
-          value={bio}
-          onChange={(e) => setBio(e.target.value)}
-          rows="3"
-        />
-        <br />
-        <br />
-        <button type="submit">Register</button>
+      {error && <div className="error">{error}</div>}
+      <form onSubmit={handleSubmit} noValidate>
+        <div className="field">
+          <label htmlFor="name">Name</label>
+          <input
+            id="name"
+            type="text"
+            placeholder="Your full name"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="field">
+          <label htmlFor="email">Email</label>
+          <input
+            id="email"
+            type="email"
+            placeholder="you@example.com"
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="field">
+          <label htmlFor="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            placeholder="At least 6 characters"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+          />
+        </div>
+
+        <div className="field">
+          <label htmlFor="bio">Bio (optional)</label>
+          <textarea
+            id="bio"
+            placeholder="Short bio about yourself"
+            value={bio}
+            onChange={(e) => setBio(e.target.value)}
+            rows={3}
+          />
+        </div>
+
+        <button className="primary" type="submit">
+          Register
+        </button>
       </form>
+
+      <div className="small">
+        Already have an account?{" "}
+        <Link to="/login" className="link">
+          Login
+        </Link>
+      </div>
     </div>
   );
 }
